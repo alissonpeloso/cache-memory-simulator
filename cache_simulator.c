@@ -311,6 +311,9 @@ void write(Main_Memory *main_memory, Cache_Memory *cache_memory, int memory_addr
         if (cache_memory->lines[i].validate == 1)
         {
             if(binaryToDecimal(cache_memory->lines[i].label, BIT_LABEL) == label){
+                printf("\n\t-> Imprimindo Linha da Cache antes da operação...\n");
+                printCacheMemory(cache_memory,i);
+
                 write_hit++;
 
                 strCopy(cache_memory->lines[i].replacement_count, decimalToBinary(0,BIT_REPLACEMENT), BIT_REPLACEMENT);
@@ -334,7 +337,7 @@ void write(Main_Memory *main_memory, Cache_Memory *cache_memory, int memory_addr
 
                 push(main_memory,cache_memory,memory_address,i);
 
-                printf("\n\t-> Imprimindo Linha da Cache...\n");
+                printf("\n\t-> Imprimindo Linha da Cache depois da operação...\n");
                 printCacheMemory(cache_memory,i);
 
                 printf("\n\t-> Imprimindo Bloco da Memória Principal...\n");
@@ -390,18 +393,6 @@ bool binaryValidate(char * binary, int size){
 int main(){
     Main_Memory *main_memory = fillMainMemory(main_memory);
     Cache_Memory *cache_memory = fillCacheMemory(cache_memory);
-
-    read(main_memory, cache_memory, 0);
-    read(main_memory, cache_memory, 0);
-    read(main_memory, cache_memory, 0);
-    read(main_memory, cache_memory, 0);
-    read(main_memory, cache_memory, 0);
-    read(main_memory, cache_memory, 0);
-    read(main_memory, cache_memory, 0);
-    read(main_memory, cache_memory, 0);
-    write(main_memory, cache_memory, 100, 1);
-
-
 
     while (1){
         // printMainMemory(main_memory, -1);
