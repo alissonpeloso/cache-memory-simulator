@@ -212,7 +212,6 @@ void pull(Main_Memory *main_memory, Cache_Memory *cache_memory, int memory_addre
     {
         if(binaryToDecimal(cache_memory->lines[i].replacement_count,BIT_REPLACEMENT) < smallest){
             smallest = binaryToDecimal(cache_memory->lines[i].replacement_count,BIT_REPLACEMENT);
-            printf("%d\n", smallest);
             posSmallest = i;
         }
     }
