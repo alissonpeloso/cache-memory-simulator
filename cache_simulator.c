@@ -294,6 +294,7 @@ void read(Main_Memory *main_memory, Cache_Memory *cache_memory, int memory_addre
     printf("\n --------------------------------\n");
     pull(main_memory,cache_memory,memory_address);
     read(main_memory,cache_memory,memory_address);
+    read_hit--;
     return;
 }
 
@@ -351,6 +352,7 @@ void write(Main_Memory *main_memory, Cache_Memory *cache_memory, int memory_addr
     printf("\n --------------------------------\n");
     pull(main_memory,cache_memory,memory_address);
     write(main_memory, cache_memory, memory_address, value);
+    write_hit--;
     return;
 }
 
